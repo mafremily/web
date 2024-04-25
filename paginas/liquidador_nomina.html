@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>calculadora laboral</title>
+    <meta charset="utf-8">
+	<meta name="viewport"   content="width=device-width">
+	<meta name="description"   content="diseño y desarrollo web">
+	<meta name="keywords"   content="diseño web, desarrollo web, seo">
+	<meta name="autor"   content="doris chaparro">
+	<link rel="stylesheet" type="text/css" href="../css/estilos.css">
+</head>
+<body>
+	<header>
+		<div class="contenedor">
+			<div id="marca">
+			<h1><span class="resaltado">CALCULADORA</span>  NOMINA Y PRESTACIONES</h1>
+		</div>	
+		<NAV>
+			<UL>
+				<LI><a href="../index.html">inicio</a></LI>
+				<li class="actual"><a href="../paginas/liquidador_nomina.html"> Nomina</a></li>
+			    <li><a href="../paginas/prestaciones.html"> prestaciones sociales</a></li>
+			    <li><a href="../paginas/Parafiscal.html"> Parafiscales</a></li>
+			    <li><a href="../paginas/contacto.html">Contacto</a></li>
+	            <li><a href="../paginas/encuesta.html">Encuesta</a></li>
+	            <li><a href="../paginas/login.html">login</a></li>	
+            </ul>
+				
+			
+
+		</NAV>
+		</div>
+
+    </header>
+<center>
+<h2>LIQUIDA TU <span>NOMINA</span></h2> 
+
+<form method="POST" action="../include/registrar_datos_nomina.php">
+
+
+<fieldset>
+	<legend>Datos personales</legend>
+
+Nombres <input type="text" placeholder="Digite los Nombres del Empleado" required="" size="50" name="nombres">
+<br>
+Apellidos<input type="text" placeholder="Digite los apellidos del Empleado" required="" size="50" name="apellidos">
+<br>
+Documento<input type="text" placeholder="Digite el documento del Empleado" required="" size="50" name="documento">
+<br>
+Cargo<input type="text" placeholder="Digite el cargo del Empleado" required="" size="50" name="cargo">
+<br>
+Salario<input type="number" placeholder="Digite el salario del Empleado" required="" id="salario" name="salario">
+<br>
+
+Dias Ladorados<select id="dias" showSelected() name="dias">
+		<option>1<option>2<option>3<option>4<option>5<option>6<option>7<option>8<option>9<option>10<option>11<option>12<option>13<option>14<option>15<option>16<option>17<option>18<option>19<option>20<option>21<option>22
+		<option>23<option>24<option>25<option>26<option>27<option>28<option>29<option>30
+		</select>	
+</fieldset>
+
+
+<fieldset>
+	<legend>DEVENGADOS</legend>
+	Sueldo Basico<input type="number"  id="basico" name="basico">
+	Subsidio de Transporte<input type="number" name="subsidio" id="st">
+<br>
+
+
+N° Horas Extras Diurnas<INPUT TYPE="number" placeholder="Digite Nro Horas" id="hed" name="hed" required autofocus ><br>
+N° Horas Extras Nocturnas<INPUT TYPE="number" placeholder="Digite Nro Horas" id="hen" name="hen" required autofocus ><br>
+N° Horas Eextras Diurnas Festivo<INPUT TYPE="number" placeholder="Digite Nro Horas" id="hedf" name="hedf" required autofocus ><br>
+N° Horas Extras Nocturnas Festivas<INPUT TYPE="number" placeholder="Digite Nro Horas" id="henf" name="henf" required autofocus ><br>
+<br>
+Valor Total Horas Extras<input type="number"  id="he" name="totalextras">
+<br>
+Ingrese Otros Devengados<input type="number"  id="otrodev" name="otrosdevengados">
+<br>
+Total Devengados<input type="number"  id="totaldev" name="totaldevengados">
+
+</fieldset>
+
+<fieldset>
+	<legend>Deducidos</legend>
+EPS<input type="number"  id="EPS" name="eps"><BR><BR>
+PENSION<input type="number"  id="PENSION" name="pension"><BR>
+FONDO SOLIDARIDAD<input type="number"  id="FONDO" name="fondo"><BR>
+INGRESE OTROS DEDUCIDOS<input type="number"  id="OTROSDEDU" name="otrosdeducidos" required autofocus ><BR>
+TOTALDEDUCIDOS<input type="number"  id="TOTALDEDUCIDOS" name="TOTALDEDUCIDOS"><BR>
+Neto a Pagar<input type="number" id ="NETO" name="neto"><br>
+</fieldset>
+
+
+<input type="button"class="btn_submit" onclick="liquidar()" value="LIQUIDAR">
+
+<input type="submit" class ="btn_reset"value="Guardar Datos ">
+</form>
+
+
+
+
+</section>
+<footer>
+	<p> CALCULADORA LABORAL  &copy; 2020</p>
+</footer>
+
+<script type="text/javascript">
+function liquidar()
+{
+var sal=document.getElementById("salario").value;
+var dia=document.getElementById("dias").value;
+sb=parseInt(sal)/30*parseInt(dia);
+
+document.getElementById("basico").value=sb;
+
+
+if(sal >= 1755606)
+{
+	var subtras=0;
+	document.getElementById("st").value=subtras;
+}
+else
+{
+	var subtras=102854/30*parseInt(dia);
+	document.getElementById("st").value=subtras;
+}
+
+var nrohed=document.getElementById("hed").value;
+var nrohen=document.getElementById("hen").value;
+var nrohedf=document.getElementById("hedf").value;
+var nrohenf=document.getElementById("henf").value;
+
+var vrhed=parseInt(sal)/240*parseInt(nrohed)*1.25;
+var vrhen=parseInt(sal)/240*parseInt(nrohen)*1.75;
+var vrhedf=parseInt(sal)/240*parseInt(nrohedf)*2;
+var vrhenf=parseInt(sal)/240*parseInt(nrohenf)*2.5;
+
+totalhe=parseInt(vrhed)+parseInt(vrhen)+parseInt(vrhedf)+parseInt(vrhenf);
+
+document.getElementById("he").value=totalhe;
+
+var otrodev=document.getElementById("otrodev").value;
+
+var devengados=parseInt(sb)+parseInt(subtras)+parseInt(totalhe)+parseInt(otrodev);
+
+document.getElementById("totaldev").value=devengados;
+
+
+//LIQUIDACION DEDUCIDOS
+
+var epse=(parseInt(sb)-parseInt(subtras))*0.04;
+document.getElementById("EPS").value=epse;
+
+var pensione=(parseInt(sb)-parseInt(subtras))*0.04;
+document.getElementById("PENSION").value=pensione;
+
+if(devengados >= 1755606*2)
+{
+	var fondosol=parseInt(devengados)*0.01;
+	document.getElementById("FONDO").value=fondosol;
+}
+else
+{
+	var fondosol=0;
+	document.getElementById("FONDO").value=fondosol;
+}
+
+
+
+
+var otrodeducido=document.getElementById("OTROSDEDU").value;
+
+var deducidos=parseInt(epse)+parseInt(pensione)+parseInt(fondosol)+parseInt(otrodeducido);
+
+document.getElementById("TOTALDEDUCIDOS").value=deducidos;
+
+var neto=parseInt(devengados)-parseInt(deducidos);
+document.getElementById("NETO").value=neto;
+
+
+
+}
+</script>
+</body>
+</html>
+

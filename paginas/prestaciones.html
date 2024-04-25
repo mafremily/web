@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+	<title>calculadora laboral</title>
+    <meta charset="utf-8">
+	<meta name="viewport"   content="width=device-width">
+	<meta name="description"   content="diseño y desarrollo web">
+	<meta name="keywords"   content="diseño web, desarrollo web, seo">
+	<meta name="autor"   content="doris chaparro">
+	<link rel="stylesheet" type="text/css" href="../css/estilos.css">
+</head>
+<body>
+	<header>
+		<div class="contenedor">
+			<div id="marca">
+			<h1><span class="resaltado">CALCULADORA</span>  NOMINA Y PRESTACIONES</h1>
+		</div>	
+		<NAV>
+			<UL>
+				<LI><a href="../index.html">inicio</a></LI>
+				<li class><a href="../paginas/liquidador_nomina.html"> Nomina</a></li>
+			    <li class="actual"><a href="../paginas/prestaciones.html"> prestaciones sociales</a></li>
+			    <li><a href="../paginas/Parafiscal.html"> Parafiscales</a></li>
+			    <li><a href="../paginas/contacto.html"> Contacto</a></li>
+			    <li><a href="../paginas/encuesta.html">Encuesta</a></li>
+	            <li><a href="../paginas/login.html">login</a></li>	
+            </ul>
+				
+			
+
+		</NAV>
+		</div>
+	</header>
+
+    <CENTER><div class="container">
+	<div class="form_top">
+	<h2>formulario<span>prestaciones</span></h2> 
+	</div></CENTER>
+
+<form name ="prestaciones" class="for_reg"action="">
+<label>Digite salario</label><input type="number" id="salario"><br>
+<label>Fecha Inicio contrato</label><input type="Date" id="dateini"><br>
+<label>Fecha Final contrato</label><input type="Date" id="datefin"><br>
+<label for="">resultado</label><input type="number" id="resultado"><br><br>
+
+<input type="submit" class="btn_submit"value="LIQUIDAR" onclick="calcular()">
+
+</form></CENTER>
+
+
+
+</section>
+<footer>
+	<p> CALCULADORA LABORAL  &copy; 2020</p>
+</footer>
+
+
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+function calcular()
+{
+
+var fechaini=new Date(document.getElementById('dateini').value);
+var fechafin=new Date(document.getElementById('datefin').value);
+var diasdif=fechafin.getTime()-fechaini.getTime();
+var contardias=Math.round(diasdif/(1000*60*60*24));
+var salario=document.getElementById("salario").value;
+
+
+document.getElementById("resultado").value=contardias;
+
+}
+</script>

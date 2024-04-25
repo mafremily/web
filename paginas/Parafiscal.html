@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+	<title>calculadora laboral</title>
+    <meta charset="utf-8">
+	<meta name="viewport"   content="width=device-width">
+	<meta name="description"   content="diseño y desarrollo web">
+	<meta name="keywords"   content="diseño web, desarrollo web, seo">
+	<meta name="autor"   content="doris chaparro">
+	<link rel="stylesheet" type="text/css" href="../css/estilos.css">
+</head>
+<body>
+	<header>
+		<div class="contenedor">
+			<div id="marca">
+			<h1><span class="resaltado">CALCULADORA</span>  NOMINA Y PRESTACIONES</h1>
+		</div>	
+		<NAV>
+			<UL>
+				<LI><a href="../index.html">inicio</a></LI>
+				<li class><a href="../paginas/liquidador_nomina.html"> Nomina</a></li>
+			    <li><a href="../paginas/prestaciones.html"> prestaciones sociales</a></li>
+			    <li class ="actual"><a href="../paginas/Parafiscal.html"> Parafiscales</a></li>
+			    <li><a href="../paginas/contacto.html"> contacto</a></li>
+	            <li><a href="../paginas/encuesta.html">Encuesta</a></li>
+	            <li><a href="../paginas/login.html">login</a></li>	
+            </ul>
+				
+			
+
+		</NAV>
+		</div>
+	</header>
+	</section>
+
+	<center><div class="container">
+	<div class="form_top">
+	<h2>liquida<span>parafiscales</span></h2> 
+	</div>
+    </center>
+
+<form>
+<fieldset>
+Ingrese Salario<input type="number" placeholder="Digite el salario " required="" id="salario" name="salario">
+Dias<select id="dias" showSelected() name="dias">
+		<option>1<option>2<option>3<option>4<option>5<option>6<option>7<option>8<option>9<option>10<option>11<option>12<option>13<option>14<option>15<option>16<option>17<option>18<option>19<option>20<option>21<option>22
+		<option>23<option>24<option>25<option>26<option>27<option>28<option>29<option>30
+		</select>	
+<br>
+</fieldset>
+
+<fieldset>
+<legend>Deducidos</legend>
+sena<input type="number"  id="EPS" name="eps"><BR><BR>
+I.C.B.M<input type="number"  id="PENSION" name="pension"><BR>
+Caja de compensacion<input type="number"  id="TOTALDED" name="deducidos"><BR>
+Neto a Pagar<input type="number" id ="NETO" name="neto"><br>
+</fieldset>
+
+<input type="button" class="btn_submit"onclick="liquidar()" value="LIQUIDAR">
+</form>
+
+<footer>
+	<p> CALCULADORA LABORAL  &copy; 2020</p>
+</footer>
+
+<script type="text/javascript">
+function liquidar()
+{
+var sal=document.getElementById("salario").value;
+var dia=document.getElementById("dias").value;
+sb=parseInt(sal)/30*parseInt(dia);
+
+
+if(sal >= 1755606)
+{
+	var subtras=0;
+	
+}
+else
+{
+	var subtras=102854/30*parseInt(dia);
+	
+}
+
+var epse=(parseInt(sb)-parseInt(subtras))*0.02;
+document.getElementById("EPS").value=epse;
+
+var pensione=(parseInt(sb)-parseInt(subtras))*0.03;
+document.getElementById("PENSION").value=pensione;
+
+
+var deducidos=parseInt(epse)-parseInt(subtras)*0.04;
+document.getElementById("TOTALDED").value=deducidos;
+
+var otros=parseInt(epse)+parseInt(pensione)+parseInt(deducidos);
+document.getElementById("TOTALDED").value=deducidos;
+
+var neto=parseInt(sb)-parseInt(otros);
+document.getElementById("NETO").value=neto Math.round(Math.random();
+
+ 
+
+}
+</script>
+
+</body>
+</html>

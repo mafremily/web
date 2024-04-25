@@ -1,0 +1,179 @@
+body{
+    font:10x Arial;
+    padding: 0;
+    margin: 0;
+    background-color:#f4f4f4;
+   
+}
+
+.contenedor{
+    width: 1200px;
+    margin:  auto;
+    overflow: hidden; 
+
+}
+ul{
+   margin: 0;
+   padding: 0;
+
+}
+
+/*encabezados */
+
+header{
+	background-color:#24282b;
+	color: #fff;
+	padding-top: 30px;
+	min-height: 70px;
+	border-bottom: 5px solid #1293d4;
+}
+header a{
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+ 
+}
+header li{
+  float: left;
+  display: inline;
+  padding: 0 20px 0 20px;
+}
+header #marca{
+  float: left;
+}
+
+header #marca h1{
+  margin: 0;
+}
+header nav{
+  float: right;
+  margin-top: 10px
+}
+header .resaltado, header .actual a{
+  color: #1293d4;
+  font-weight: bold;
+}
+header a:hover{
+  color: #ccc;
+  font-weight: bold;
+}
+#cabecera{
+  min-height: 400px;
+  text-align: center;
+  color: #fff;
+  background: url('../IMAGENES/1.JPG') no-repeat 0;
+}
+#cabecera h1{
+  margin-top: 100px;
+  font-size: 55px;
+  margin-bottom: 10px;
+  }
+#cabecera p{
+  font-size: 20px;
+}
+
+#boletin{
+  padding: 15px
+  color:#fff;
+  background: #24282b;
+  
+}
+#boletin h1{
+text-align: center;
+  color: #fff;
+
+}
+
+#cajas{
+  margin-top: 10PX
+
+}
+.caja{
+  float: left;
+  text-align: center;
+  width: 30%;
+  padding: 10px;
+  
+  
+
+}
+
+.caja img:hover{
+  width:300px;
+  height: 150px;
+  opacity: 0.9;
+  cursor: pointer;
+  
+}
+
+
+footer{
+  padding: 20px;
+  margin-top: 20px;
+  color: #fff;
+  background-color: #1293d4;
+  text-align: center;
+}
+
+form
+{
+  background: #59C9C6;
+  width: 500px;
+  max-width: 100%;
+  margin: auto;
+  margin-top: 30px;
+  padding: 20px;
+  box-shadow: 0 0 20px 1px rgba(0,0,0,0.6);
+  position: relative;
+
+}
+input
+{
+  display: block;
+  width: 400px;
+  font-size: 1.3em;
+}
+h1{
+  text-align: center;
+  color: #FFF;
+}
+h2 span{
+  color: #1293d4;
+}
+
+.btn_form{
+  display:flex;
+justify-content: space-around;
+margin-top: 1rem;
+ }
+
+.btn_submit, .btn_reset{
+background-color: #efefef;
+padding: .5rem;
+margin: .5rem;
+border: none;
+border-bottom: solid #c8c8c8 .2rem;
+
+}
+.inputfocus{
+  border-bottom: solid #f39b53 .2rem;
+}
+
+.btn_submit, .btn_reset{
+width:40%;
+border-bottom:none;
+background-color:#31b1e5;
+color:white;
+}
+
+.btn_reset{
+  background-color:#eda135;
+}
+.btn_submithover{
+ background-color:#4c9ed9;
+ }
+.btn_resethover{
+ background-color:#eda135; 
+}
+

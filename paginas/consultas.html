@@ -1,0 +1,56 @@
+//$sql= "SELECT *FROM estudiantes";
+$result=mysqli_query($mysqli,$sql);
+
+
+while($mostrar=mysqli_fetch_array($result))
+{
+
+echo "<center><table border=1>";
+
+  echo "<td width=180>",$most
+
+<center><H1>MOSTRAR DATOS consultados</H1></center>
+<center>
+<table border=1>
+<th width=180 bgcolor="red">codigo</th>
+<th width=180 bgcolor="red">nombre</th>
+<th width=180 bgcolor="red">apellido</th>
+<th width=180 bgcolor="red">direccion</th>
+<th width=180 bgcolor="red">correo</th>
+<th width=180 bgcolor="red">telefono</th>
+
+
+</table></center>
+<?php
+
+$mysqli = new mysqli('127.0.0.1','root','','clase9');
+
+if ($mysqli->connect_error) {
+	echo " LO SENTIMOS, ESTE SITIO WEB ESTA EXPERIMENTANDO PROBLEMAS  <BR>";
+	echo "error: Fallo al conectarse a mysql debido a:  ". $mysqli->connect_error . "<br>";
+    
+exit;
+}
+else{
+	
+	
+$codigo = $_POST["codigo"];
+
+ 
+ $sql="SELECT  *from estudiantes where codigo=$_POST[codigo]";
+    echo '<script>alert("datos consultados")</script> ';
+	//*echo "<script>location.href='/clase7/index.html'</script>";
+
+
+//$sql= "SELECT *FROM estudiantes";
+$result=mysqli_query($mysqli,$sql);
+
+
+while($mostrar=mysqli_fetch_array($result))
+{
+
+echo "<center><table border=1>";
+
+  echo "<td width=180>",$most
+<?php
+
